@@ -1,0 +1,51 @@
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-image: url(https://images.unsplash.com/photo-1508161250369-a7ecbdfb67fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fGNocmlzdG1hc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+}
+
+p{
+    font-size: 2rem;
+}
+
+h2{
+    margin-bottom: 2.5rem;
+    font-weight: lighter;
+
+}
+
+.container{
+    font-size: 5rem;
+    color: black;
+    text-align: center;
+    margin-bottom: 2.5em;
+
+}
+
+.clock{
+    font-weight: 900;
+    display: flex;
+    justify-content: space-between;
+    gap: 6.25rem;
+    
+}
+
+
+
+
