@@ -1,0 +1,75 @@
+
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #c7ecee;
+}
+
+.note{  
+    width: 300px;
+    min-width: 200px;
+    margin: 1rem;
+    display: none;
+
+}
+
+.text-field{
+    padding-bottom: 17rem;
+    width: 100%;
+    border: none;
+
+}
+
+textarea{
+    resize: none;
+}
+
+#note-text:disabled{
+    background: lightgray;
+}
+
+
+nav{
+    display: flex;
+    background-color: forestgreen;
+    justify-content: flex-end;
+}
+
+button{
+    cursor: pointer;
+}
+
+.control{
+    border: none;
+    margin: 5px;
+    font-size: 1rem;
+    background: none;
+    color: white;
+
+}
+
+.add{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.add button{
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem; 
+    background-color: rgb(50, 131, 237);
+    color: white;
+
+}
