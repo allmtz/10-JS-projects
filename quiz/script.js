@@ -1,32 +1,32 @@
 
 
-
+//quesitons from https://americanhistory.si.edu/citizenship/test
 const questions = [
     {
-    question:'this is quesiton 1',
-    A: 'answr a',
-    B: 'answr b',
-    C: 'answr c',
-    D: 'answr d',
+    question:'What are two ways that Americans can participate in their democracy?',
+    A: 'Purchase a building and go on a trip',
+    B: 'Drive a car and go to a museum',
+    C: 'Vote and give an elected official your opinion on an issue',
+    D: 'Eat at a restaurant and apply for a job',
     userAnswer: null,
-    correct: 'A'
+    correct: 'C'
 },{
-    question:'this is quesiton 2',
-    A: 'answr a2',
-    B: 'answr b2',
-    C: 'answr c2',
-    D: 'answr d2',
+    question:'We elect a U.S. Senator for how many years?',
+    A: '10',
+    B: '6',
+    C: '2',
+    D: '4',
     userAnswer: null,
-    correct: 'A'
+    correct: 'B'
 
 },{
-    question:'this is quesiton 3',
-    A: 'answr a3',
-    B: 'answr b3',
-    C: 'answr c3',
-    D: 'answr d3',
+    question:'There were 13 original states. Name three.',
+    A: 'Florida, Mississippi, Louisiana',
+    B: 'New York, Virginia, Massachusetts',
+    C: 'Utah, Nebraska, Kansas',
+    D: 'Texas, New Mexico, Arizona',
     userAnswer: null,
-    correct: 'A'
+    correct: 'B'
 
 }
 ]
@@ -46,23 +46,26 @@ function nextQuestion(){
     document.querySelector('.choice2').innerText = questions[i].B
     document.querySelector('.choice3').innerText = questions[i].C
     document.querySelector('.choice4').innerText = questions[i].D
-
 }
 
 submitBtn.addEventListener('click',()=>{
-    questions[i].userAnswer = myForm.answer.value
-    questions[i].userAnswer == questions[i].correct ? total += 1 : null
+    questions[i].userAnswer = myForm.answer.value //52 and 53 make sure user selected an answer
+    if(questions[i].userAnswer){
+        questions[i].userAnswer == questions[i].correct ? total += 1 : null
 
-    i++
+        i++
 
-    if(i < questions.length){
-        nextQuestion()
+        if(i < questions.length){
+            nextQuestion()
+        }
+        else  {
+            const container = document.querySelector('.container')
+            container.innerHTML = 
+            `<h3> You got ${total}/${questions.length} right</h3>
+            <button OnClick = 'location.reload()'>Refresh</button>`
+        }
     }
-    else  {
-        const container = document.querySelector('.container')
-        container.innerHTML = `<h1> you got ${total}/${questions.length}
-         right</h1><button OnClick = 'location.reload()'>Refresh<button>`
-    }
+    else alert('Select an answer')
 })
 
 nextQuestion()
