@@ -21,7 +21,8 @@ function destroy(){
 function createNote(){
     const note = document.querySelector('.note')
     const noteCopy = note.cloneNode(true)
-    note.style.display = 'inline'
+    noteCopy.style.display = 'inline'
+
     if(noteCopy.querySelector('textarea').disabled == true){    //clears disabled when a copy is made
         noteCopy.querySelector('textarea').disabled = false
     }
