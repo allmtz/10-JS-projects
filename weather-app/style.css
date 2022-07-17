@@ -1,0 +1,92 @@
+
+/* Design inspiration : https://dribbble.com/shots/16097007-Weather-app */
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #353b48;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem .3rem;
+    border-radius: 5%;
+
+}
+
+.search-bar{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.search-bar button{
+    cursor: pointer;
+    border-radius: 2px;
+    border: none;
+}
+
+#location{
+    margin-top: 1rem;
+    text-align: center;
+}
+
+
+img{
+    height: 60px;
+
+}
+
+.temp{
+    font-size: 3rem;
+}
+
+.weather{
+    font-size: 1rem;
+    font-weight: 100;
+    color: black;
+}
+
+.mini-container{
+    display: none;
+    gap: 5px;
+    margin-top: 2rem;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card{
+    padding: 0 2rem;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: whitesmoke;
+
+}
+.card-icon{
+    font-size: 1.6rem;
+}
+
+.card p {
+    margin: 7px 0;
+}
+
+
+
+
+
