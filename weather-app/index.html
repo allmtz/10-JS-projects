@@ -64,6 +64,7 @@
     </div>
 <script>
 
+    let apiKey
     const tempDisplay = document.querySelector('#temp')
     const weatherDisplay = document.querySelector('#weather')
     const locationDisplay = document.querySelector('#location')
@@ -73,7 +74,7 @@
     const container = document.querySelector('.container')
 
     async function getLocation(loc){
-        const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${loc}&limit=1&appid=58a9ff965eacbfa33ea23b95019345fe`)
+        const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${loc}&limit=1&appid=${apiKey}`)
         const locData = await response.json()
 
         const {name, lat, lon,} = locData[0]
