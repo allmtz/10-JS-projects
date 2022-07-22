@@ -1,0 +1,45 @@
+<html lang="en">
+    <head>
+    <!DOCTYPE html>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>What to Do</h1>
+        <input class="input" type="text" placeholder="What's Next ?">
+        <ul class = 'todoList'></ul>
+    </div>   
+</body>
+
+<script>
+    window.addEventListener('keyup',updateTodo);
+    const inputField = document.body.querySelector('input');
+    const todoList = document.body.querySelector('.todoList');
+
+    function updateTodo(e){
+        
+        if(e.key == 'Enter' && inputField.value.length > 0){
+            const toDo = inputField.value
+            todoList.innerHTML += `<li>${toDo}</li>`
+            inputField.value = ''
+
+            const li = document.body.querySelectorAll('li')
+            li.forEach(element => {
+                element.addEventListener('click',(e)=>{
+                    e.target.remove()
+                })   
+            });
+        }
+    }
+
+ 
+</script>
+</html>
