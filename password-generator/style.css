@@ -1,0 +1,28 @@
+
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #c7ecee ;
+}
+
+button{
+    display: block;
+    margin: auto;
+    padding: .5rem;
+    font-size: 1.5rem;
+    border: none;
+    background-color: rgba(108, 176, 253, 0.808);
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+
+}
