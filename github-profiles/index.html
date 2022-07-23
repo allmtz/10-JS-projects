@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Profiles</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <form>
+        <input type="text" placeholder="Search a Github User">
+    </form> 
+    <div class="container">
+        <img>
+        <div class="info-container">
+            <p class="login"></p>
+            <p class="name"></p>
+            <p class="bio"></p>
+            <div class="social">
+                <p class="followers"></p>
+                <p class="following"></p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    const searchBar = document.body.querySelector('input');
+    const form = document.body.querySelector('form');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const user = searchBar.value;
+        getData(user);
+        searchBar.value = '';
+    })
+
+    async function getData(user){
+        const response = await fetch(`https://api.github.com/users/${user}`);
+        const info = await response.json();
+
+        console.log(info);
+
+        document.body.querySelector('img').src = info.avatar_url;
+        document.body.querySelector('.login').textContent = info.login;
+        document.body.querySelector('.name').textContent = info.name;
+        document.body.querySelector('.bio').textContent = info.bio;
+        document.body.querySelector('.followers').textContent = `${info.followers} Followers`;
+        document.body.querySelector('.following').textContent = `${info.following} Following `;
+
+    }
+    
+</script>
+</html>
