@@ -113,5 +113,14 @@ nav form input::placeholder{
     }
 }
 
+.dropdown{
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
 
 
