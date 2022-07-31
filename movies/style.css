@@ -1,9 +1,4 @@
 
-/* possilbe colors
-    body: 003B37
-    nav : 346C66
-    card: 0B1C31
-*/
 
 *{
     box-sizing: border-box;
@@ -54,6 +49,7 @@ nav form input::placeholder{
     gap: 50px;
     color: white;
     margin-bottom: 2rem;
+    height: 100%;
 
 }
 
@@ -67,6 +63,8 @@ nav form input::placeholder{
     border-radius: 5px;
     overflow: hidden;
     background-color: #002C45;
+    max-height: 560px;
+    height: 560px;
     
 }
 
@@ -91,6 +89,29 @@ nav form input::placeholder{
     font-weight: bold;
 }
 
+.overview{
+    display: none;
+    
+}
+
+.active{
+    animation: slide .2s linear;
+    animation-fill-mode: forwards;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    line-height: 1.3rem;
+    font-size: 1rem;
+    background-color: #002C45;
+    padding: 1rem;
+
+}
+
+@keyframes slide{
+    100%{
+        transform: translateY(-90%);
+    }
+}
 
 
 

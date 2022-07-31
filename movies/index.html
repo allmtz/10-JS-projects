@@ -52,16 +52,37 @@
         // console.log(movies)
 
         movies.results.forEach(movie => {
-            container.innerHTML += 
-            `<div class='card'>
-                <img src= https://image.tmdb.org/t/p/w300${movie.poster_path}>
-                <div class="movie-info">
-                    <h2 class="title">${movie.title}</h2>
-                    <p class="rating">${movie.vote_average}</p>
-                </div>
-            <div>` 
-              
+            if(movie.overview == '' || movie.poster_path == null){      //do not display movies with no backdrop or description
+                return
+                }
+            else{
+                container.innerHTML += 
+                    `<div class='card'>
+                    <img src= https://image.tmdb.org/t/p/w300${movie.poster_path}>
+                    <div class="movie-info">
+                        <h2 class="title">${movie.title}</h2>
+                        <p class="rating">${movie.vote_average}</p>
+                    </div>
+                    <div class="overview">
+                        <p>${movie.overview}</p>
+                    </div>
+                <div>` 
+            }
+                          
         });      
+
+        const cards = document.body.querySelectorAll('.card')       //selects all movies that are displayed
+        cards.forEach(card => {                                     //adds the overview animation
+            card.addEventListener('mouseenter',(e)=>
+            {
+                e.target.children[2].classList.add('active')        //selects 3rd child of of the card element, which is the 'overview' div
+
+            })
+            card.addEventListener('mouseleave',(e)=>{
+                e.target.children[2].classList.remove('active')
+
+            })
+        })
     }
 
     findMovies()
