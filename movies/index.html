@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Movie App</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <form>
+            <input type="textarea" placeholder="Search">
+        </form>
+    </nav>
+    <main>
+        <div class="container">
+            
+        </div>
+    </main>
+
+
+<script>
+    // img url format: `https://image.tmdb.org/t/p/w200/{imgSource}`
+    const API_KEY =  ''
+    
+    const img = document.body.querySelector('img')
+    const container = document.body.querySelector('.container')
+    const form = document.body.querySelector('form')
+    const searchBox = document.body.querySelector('form input')
+
+
+    form.addEventListener('submit', (e)=>{
+        e.preventDefault()
+        findMovies(searchBox.value)
+
+    })
+    
+    async function findMovies(userSearch){
+
+        const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${String(searchBox.value)}`)
+        const movies = await response.json()
+
+        searchBox.value = ''
+        container.innerText = ''
+        
+        // console.log(movies)
+
+        movies.results.forEach(movie => {
+            container.innerHTML += 
+            `<div class='card'>
+                <img src= https://image.tmdb.org/t/p/w300${movie.poster_path}>
+                <div class="movie-info">
+                    <h2 class="title">${movie.title}</h2>
+                    <p class="rating">${movie.vote_average}</p>
+                </div>
+            <div>` 
+              
+        });      
+    }
+
+    findMovies()
+
+</script>  
+
+</body>
+</html>
