@@ -115,40 +115,48 @@
             const videos = await response.json()
             
             const trailers = videos.results.filter(video => video.name.includes('Trailer') || video.name.includes('trailer'))   //returns an array of trailer objects 
+
+            if(trailers.length == 0){
+                alert('No Trailer Found')
+                return
+            }
+
+            else{
+                const youtubeEmbed = `https://www.youtube.com/embed/${trailers[0].key}`     //selects the first trailer and uses the 'key' key to create a youtube URL
+
+                const secondCall = await fetch(`https://api.themoviedb.org/3/movie/${movieID}?api_key=${API_KEY}&language=en-US`)  //calls the MDB API using the id of the movie the user clicked on
+                const movie = await secondCall.json()
                 
-            const youtubeEmbed = `https://www.youtube.com/embed/${trailers[0].key}`     //selects the first trailer and uses the 'key' key to create a youtube URL
+                console.log(movie)
 
-            const secondCall = await fetch(`https://api.themoviedb.org/3/movie/${movieID}?api_key=${API_KEY}&language=en-US`)  //calls the MDB API using the id of the movie the user clicked on
-            const movie = await secondCall.json()
+                const date = new Date(movie.release_date)
+                const year = date.getFullYear()
 
-            console.log(movie)
+                dropdown.innerHTML = 
+                    `        
+                        <div class="dropdown-container">
+                        <iframe class='video' width="400" height="300"src="${youtubeEmbed}"></iframe>
+                        <div class="dropdown-info">
+                            <div class="row">
+                                <div>
+                                    <h2>${movie.title}</h2>
+                                    <h5>${year}</h5>
+                                </div>
+                                <div class="ratings">
+                                    <p>${movie.vote_average.toFixed(1)}</p>
+                                    <p>${movie.vote_count}</p>
 
-            const date = new Date(movie.release_date)
-            const year = date.getFullYear()
-
-            dropdown.innerHTML = 
-                `        
-                    <div class="dropdown-container">
-                    <iframe class='video' width="400" height="300"src="${youtubeEmbed}"></iframe>
-                    <div class="dropdown-info">
-                        <div class="row">
-                            <div>
-                                <h2>${movie.title}</h2>
-                                <h5>${year}</h5>
+                                </div>
                             </div>
-                            <div class="ratings">
-                                <p>${movie.vote_average.toFixed(1)}</p>
-                                <p>${movie.vote_count}</p>
-
-                            </div>
+                            <p>${movie.overview}}</p> 
                         </div>
-                        <p>${movie.overview}}</p> 
-                    </div>
-                `
-            dropdown.style.display = 'inline-block'
+                    `
+                dropdown.style.display = 'inline-block'
+            }
+
         }
 
-    findMovies()
+    // findMovies()
 
 </script>  
 
