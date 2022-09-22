@@ -1,6 +1,6 @@
 // img url format: `https://image.tmdb.org/t/p/w200/{imgSource}`
 
-const API_KEY = "YOUR_API_KEY";
+const API_KEY = "2fa9b8c3457255630ef48d6faeab6c29";
 
 const img = document.body.querySelector("img");
 const container = document.body.querySelector(".container");
@@ -67,7 +67,7 @@ async function findMovies(userSearch) {
 
 async function getTrailer(movieID) {
   const response = await fetch(
-    `http://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${API_KEY}`
+    `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${API_KEY}`
   );
   const videos = await response.json();
 
