@@ -1,4 +1,3 @@
-# 10-more-JS-projects
 
 ## 10 projects built to practice working with different aspects of vanilla JavaScript
 
